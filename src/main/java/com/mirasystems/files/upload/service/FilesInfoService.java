@@ -24,7 +24,7 @@ public class FilesInfoService {
 		return repository.save(fileInfo);
 	}
 
-	public FilesInfo geFile(String id) {
+	public FilesInfo getFile(String id) {
 		return repository.findById(id).get();
 	}
 

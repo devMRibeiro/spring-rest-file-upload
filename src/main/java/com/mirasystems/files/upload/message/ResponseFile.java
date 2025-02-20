@@ -5,6 +5,7 @@ public class ResponseFile {
 	private String name;
 	private String url;
 	private String type;
+	private Long size;
 
 	public ResponseFile(String name, String url, String type, Long size) {
 		this.name = name;
@@ -13,7 +14,6 @@ public class ResponseFile {
 		this.size = size;
 	}
 
-	private Long size;
 
 	public String getName() {
 		return name;
