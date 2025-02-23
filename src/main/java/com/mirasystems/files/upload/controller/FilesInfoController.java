@@ -54,20 +54,20 @@ public class FilesInfoController {
 					.path("/path/")
 					.path(filesInfo.getId())
 					.toUriString();
-			
+
 			return new ResponseFile(
 					filesInfo.getName(),
 					fileDownloadUri,
 					filesInfo.getType(),
 					Long.valueOf(filesInfo.getData().length));
 		 }).collect(Collectors.toList());
-		
+
 		return ResponseEntity.status(HttpStatus.OK).body(files);
 	}
 
 	@GetMapping("/files/{id}")
 	public ResponseEntity<byte[]> getFile(@PathVariable String id) {
-		
+
 		FilesInfo filesInfo = service.getFile(id);
 		return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filesInfo.getName() + "\"")
