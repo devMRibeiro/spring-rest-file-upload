@@ -36,12 +36,12 @@ public class FilesInfoController {
 			service.store(file);
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body(new ResponseMessage("Uploaded the file successfully: " + fileName));
+					.body(new ResponseMessage("Uploaded the file successfully: " + fileName, HttpStatus.OK.value()));
 
 		} catch (Exception e) {
 			return ResponseEntity
 					.status(HttpStatus.EXPECTATION_FAILED)
-					.body(new ResponseMessage("Could not upload the file: " + fileName + " !"));
+					.body(new ResponseMessage("Could not upload the file: " + fileName + " !", HttpStatus.EXPECTATION_FAILED.value()));
 		}
 	}
 

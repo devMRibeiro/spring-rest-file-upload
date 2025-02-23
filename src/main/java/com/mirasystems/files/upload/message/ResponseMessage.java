@@ -3,9 +3,11 @@ package com.mirasystems.files.upload.message;
 public class ResponseMessage {
 
 	private String message;
+	private int status;
 
-	public ResponseMessage(String message) {
+	public ResponseMessage(String message, int status) {
 		this.message = message;
+		this.status = status;
 	}
 
 	public String getMessage() {
@@ -14,5 +16,13 @@ public class ResponseMessage {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 }
