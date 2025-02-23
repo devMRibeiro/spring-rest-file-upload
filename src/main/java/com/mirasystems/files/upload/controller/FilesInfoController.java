@@ -22,7 +22,7 @@ import com.mirasystems.files.upload.model.FilesInfo;
 import com.mirasystems.files.upload.service.FilesInfoService;
 
 @Controller
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:4200")
 public class FilesInfoController {
 
 	@Autowired
@@ -51,7 +51,7 @@ public class FilesInfoController {
 		List<ResponseFile> files = service.getAllFiles().map(filesInfo -> {
 			String fileDownloadUri = ServletUriComponentsBuilder
 					.fromCurrentContextPath()
-					.path("/path/")
+					.path("/file/")
 					.path(filesInfo.getId())
 					.toUriString();
 
@@ -65,7 +65,7 @@ public class FilesInfoController {
 		return ResponseEntity.status(HttpStatus.OK).body(files);
 	}
 
-	@GetMapping("/files/{id}")
+	@GetMapping("/file/{id}")
 	public ResponseEntity<byte[]> getFile(@PathVariable String id) {
 
 		FilesInfo filesInfo = service.getFile(id);
