@@ -1,6 +1,7 @@
 package com.mirasystems.files.upload.controller;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,7 +24,8 @@ import com.mirasystems.files.upload.model.FilesInfo;
 import com.mirasystems.files.upload.service.FilesInfoService;
 
 @Controller
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/file/manager")
 public class FilesInfoController {
 
 	@Autowired

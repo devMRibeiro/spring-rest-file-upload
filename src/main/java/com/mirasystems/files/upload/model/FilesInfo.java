@@ -4,14 +4,11 @@ import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = FilesInfo.FILES_INFO_TABLE)
+@Table(name = "files")
 public class FilesInfo {
-
-	private static final String FILES_INFO_TABLE = "files";
 
 	@Id
 	@UuidGenerator
@@ -21,7 +18,7 @@ public class FilesInfo {
 
 	private String type;
 
-	@Lob
+//	@Lob For POSTGRESQL
 	private byte[] data;
 
 	public FilesInfo() { }
